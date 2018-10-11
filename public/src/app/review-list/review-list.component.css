@@ -1,0 +1,45 @@
+
+.bd{
+    width: 50%;
+    min-height: 180px;
+    margin: 50px;
+}
+
+.skills{
+   margin: 3%;
+  
+}
+
+.labels{
+    margin: 0%;
+    min-width: 100px;
+
+}
+input {
+    width: 20%;
+}
+
+.links{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.btns{
+    margin: 5px;
+    text-align: center;
+    font-weight: bold ;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.errors p{
+    color: red;
+    outline: solid green 2px ;
+}
+
+.ang_errors{
+    color: darkblue;
+    font-weight: bold;
+    outline: dotted gray 2px;
+}

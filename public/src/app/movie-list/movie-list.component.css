@@ -1,0 +1,30 @@
+.table{
+    width: 80%;
+    min-height: 180px;
+}
+
+.all{
+    margin: 1%;
+
+}
+
+.links{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.table{
+    border: solid black;
+}
+td{
+    border-left: solid black;
+    border-right: solid black;
+}
+
+.btns{
+    margin: 5px;
+    text-align: center;
+    font-weight: bold ;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+}

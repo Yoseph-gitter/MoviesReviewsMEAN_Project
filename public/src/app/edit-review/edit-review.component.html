@@ -1,0 +1,60 @@
+<div class="bd">
+    <h4>Edit movies Review </h4>
+    <div class="errors" *ngFor="let error of customErrors">
+        <div *ngIf="error">
+           <p *ngIf="error.reviewer_name" >{{error && error.reviewer_name && error.reviewer_name.message | json }}</p>
+           <p *ngIf="error.stars" >{{error && error.stars && error.stars.message | json }}</p>
+           <p *ngIf="error.review" >{{error && error.review && error.review.message | json }}</p>
+         </div>
+     </div>
+     <!-- {{ reviews | json }} -->
+    <form (submit)="editReview(reviews._id)" name="myName">
+          <div class="line">
+            <p  class="labels">Your Name:</p>
+            <input 
+                type="text" 
+                name="petType"
+                [(ngModel)]="reviews.reviewer_name"
+                minlength=3
+                #creater="ngModel"
+                required 
+                type="text" 
+              >
+         
+             <p class="ang_errors" *ngIf="!creater.valid" name="errorReviewr">
+              {{ creater.errors | json }}
+               {{ creater.valid | json }}
+            </p>
+          </div>
+        
+          <p  class="labels">Stars :</p>
+          <select name="opt" class="options"  [(ngModel)]="reviews.stars" (change)="updateStarsOnchange($event.target.value)">
+              <option class='option' *ngFor='let option of options' [value]="option"
+              [selected]="reviews.stars == option ? true : false" > {{option}} </option>
+          </select>
+          <!-- {{stars | json }} -->
+  
+          
+          <div class="line">
+            <p  class="labels">Your Review:</p>
+            <textarea class="area" 
+                  type="text"
+                  name="desc" 
+                  [(ngModel)]="reviews.review"
+                  minlength=3
+                  required
+                  #review="ngModel"
+                ></textarea>
+                <p class="ang_errors" *ngIf="!review.valid">
+                    {{ review.errors | json }}
+                     {{ review.valid | json }}
+                </p>
+          </div>
+          <input type="submit"  class="btns" value="Submit" name="submit"> 
+          <button [routerLink]="['/movies']" class="btns"> Cancel </button>
+  
+      </form>
+
+  
+  </div>
+  

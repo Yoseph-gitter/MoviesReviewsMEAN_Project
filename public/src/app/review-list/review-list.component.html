@@ -1,0 +1,44 @@
+
+<div class="all">
+    <!-- <h2> Pet Shelter</h2> -->
+    <p>Squishy Tomatoes : </p>
+    <a [routerLink]="['/movies']" class="links"><h4>Back To Review </h4> </a>
+  
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Reviewer</th>
+            <th scope="col">Stars</th>
+            <th scope="col">Reviews</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+       
+        <tr *ngFor="let review of reviews">
+            <td>{{ review.reviewer_name }}</td>
+            <td>{{ review.stars }}</td>
+            <td>{{ review.review }}</td>
+            <td>
+              <button (click)="removeReview(review._id)" >Remove</button>
+              <a href="#"  [routerLink]="['/movies/review/', review._id, 'edit']" class="btns">Edit Reviews </a> 
+              
+            </td>
+            
+          </tr>
+        
+        </tbody>
+      </table>
+    
+     <!-- 
+          BootStrap codes will goes here
+       -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+  
+  </div>
+  

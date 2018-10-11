@@ -1,0 +1,79 @@
+<div class="bd">
+  <h3>Create a Movie with Your Review </h3>
+  <div class="errors" *ngFor="let error of customErrors">
+     <div *ngIf="error">
+        <p *ngIf="error.title">{{ error.title && error.title.message | json }}</p>
+        <p *ngIf="error.creater_name" >{{error && error.creater_name && error.creater_name.message | json }}</p>
+        <p *ngIf="error.reviewer_name" >{{error && error.reviewer_name && error.reviewer_name.message | json }}</p>
+        <p *ngIf="error.stars" >{{error && error.stars && error.stars.message | json }}</p>
+        <p *ngIf="error.review" >{{error && error.review && error.review.message | json }}</p>
+      </div>
+  </div>
+
+  {{movie | json }}
+  <form (submit)="addMovie()" name="myName">
+      <div class="line">
+          <p  class="labels">Movie Title:</p>
+          <input   
+              required 
+              type="text" 
+              name="petName" 
+              minlength="3" 
+              [(ngModel)]="movie.title"
+              #title="ngModel"
+            >
+           <p class="ang_errors" *ngIf="!movie.title">
+            {{ title.errors | json }}
+            {{ title.valid | json }}
+          </p>
+          
+        </div>
+        
+        <div class="line">
+          <p  class="labels">Your Name:</p>
+          <input 
+              type="text" 
+              name="petType"
+              [(ngModel)]="movie.creater_name"
+              minlength="3"
+              #creater_name="ngModel"
+              required 
+              type="text" 
+            >
+  
+           <p class="ang_errors" *ngIf="!movie.creater_name">
+            {{ creater_name.errors | json }}
+             {{ creater_name.valid | json }}
+          </p>
+        </div>
+        <p  class="labels">Stars :</p>
+        <select name="option" class="options"  [(ngModel)]="movie.reviews[0].stars" >
+            <option class='option' *ngFor='let option of options' [value]="option" 
+            [selected]= "movie.reviews[0].stars == option ? true : false " > {{option}}
+          </option>
+          
+        </select>
+        
+        <div class="line">
+          <p  class="labels">Your Review:</p>
+          <textarea class="area" 
+                type="text"
+                name="desc" 
+                [(ngModel)]="movie.reviews[0].review"
+                minlength="3"
+                required
+                #review="ngModel"
+              ></textarea>
+              <p class="ang_errors" *ngIf=" !review.valid">
+                  {{ review.errors | json }}
+                   {{ review.valid | json }}
+              </p>
+        </div>
+        <input type="submit"  class="btns" value="Submit" name="submit"> 
+        <button [routerLink]="['/movies']" class="btns"> Cancel </button>
+
+    </form>
+
+    <!-- {{ pet | json }} -->
+
+</div>

@@ -1,0 +1,36 @@
+
+<div class="all">
+  <h2>Squishy Tomatoes : </h2>
+  <a [routerLink]="['/movies/new']" class="links"><h6>Add a new Movie</h6> </a>
+
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Movie Title</th>
+          <th scope="col">Available Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+     
+      <tr *ngFor="let movie of movies">
+          <td>{{ movie.title }}</td>
+          <td>
+              <a  href="#"  [routerLink]="['/movies/', movie._id]" class="links">Read Reviews </a>  |
+              <a  href="#"  [routerLink]="['/movies/', movie._id  , 'review']"  class="links"> Write Reviews </a> |
+              <a href="#"  (click)="deleteMovie(movie._id)" class="links" > Delete Movie</a> 
+          </td>
+        </tr>
+      
+      </tbody>
+    </table>
+
+   <!-- 
+        BootStrap codes will goes here
+     -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</div>
